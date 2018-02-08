@@ -1,0 +1,49 @@
+﻿#footer {
+    clear: both;
+    height: 39px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 38px;
+    vertical-align: middle;
+    /*borda de 1px transparente para permitir que os demais temas alterem apenas a borda sem mexer no height*/
+    border-top: 1px solid #008892;
+}
+
+    #footer a, #footer a:visited {
+        color: #000;
+    }
+
+        #footer a:hover {
+            color: #000;
+        }
+
+    #footer .legal {
+        float: left;
+        margin-left: 13px;
+    }
+
+        #footer .legal * {
+            float: left;
+            margin-right: 3px;
+        }
+
+    #footer span {
+        display: block;
+    }
+
+    #footer .assinatura {
+        float: right;
+        margin-right: 13px;
+    }
+
+        #footer .assinatura * {
+            float: right;
+            margin-left: 3px;
+        }
+
+    #footer .separator {
+    }
+
+    #footer .powered-logo {
+        margin-top: 5px;
+    }

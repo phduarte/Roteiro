@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gadz.Roteiro.Web", "Gadz.Roteiro.Web\Gadz.Roteiro.Web.csproj", "{B276FDCF-DEF3-44C8-A43E-7F0D35438499}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. RoteiroContext", "2. RoteiroContext", "{4271506F-061F-4803-9C6F-F48671C74A2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Core", "1. Core", "{652D3E2E-BFAD-4F9D-94BC-84318806A328}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Interface", "2. Interface", "{8B2C308F-DC8D-48DB-940B-04776B925385}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. CommonContext", "1. CommonContext", "{FD20605F-9797-4755-BC5A-7B1C76320E98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gadz.Common.Model", "Gadz.Common.Model\Gadz.Common.Model.csproj", "{C7AE4819-7604-43E7-AF87-9821FC56A6DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gadz.Roteiro.Core", "Gadz.Roteiro.Core\Gadz.Roteiro.Core.csproj", "{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B276FDCF-DEF3-44C8-A43E-7F0D35438499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B276FDCF-DEF3-44C8-A43E-7F0D35438499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B276FDCF-DEF3-44C8-A43E-7F0D35438499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B276FDCF-DEF3-44C8-A43E-7F0D35438499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7AE4819-7604-43E7-AF87-9821FC56A6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7AE4819-7604-43E7-AF87-9821FC56A6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7AE4819-7604-43E7-AF87-9821FC56A6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7AE4819-7604-43E7-AF87-9821FC56A6DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B276FDCF-DEF3-44C8-A43E-7F0D35438499} = {8B2C308F-DC8D-48DB-940B-04776B925385}
+		{652D3E2E-BFAD-4F9D-94BC-84318806A328} = {4271506F-061F-4803-9C6F-F48671C74A2A}
+		{8B2C308F-DC8D-48DB-940B-04776B925385} = {4271506F-061F-4803-9C6F-F48671C74A2A}
+		{C7AE4819-7604-43E7-AF87-9821FC56A6DA} = {FD20605F-9797-4755-BC5A-7B1C76320E98}
+		{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4} = {652D3E2E-BFAD-4F9D-94BC-84318806A328}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8E1A3F9-C054-48B8-8FAE-F74F519ADFB3}
+	EndGlobalSection
+EndGlobal

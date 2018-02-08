@@ -1,0 +1,507 @@
+﻿/* pseudo-classes */
+*
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    min-width: 700px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    overflow: auto;
+}
+
+a:visited
+{
+    color: #00F;
+}
+
+h1
+{
+    font-size: 36px;
+}
+h2
+{
+    font-size: 24px;
+}
+h3
+{
+    font-size: 18px;
+}
+h4
+{
+    font-size: 16px;
+}
+h5
+{
+    font-size: 14px;
+}
+h6
+{
+    font-size: 12px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+.color1 { background-color: #000000;}
+.color2 { background-color: #008892;}
+.color3 { background-color: #00A1AB;}
+.color4 { background-color: #01BDC7;}
+.input { border: 1px solid #000000;}
+.text { border: 1px solid #000000;}
+.border1 { border: 1px solid #000000;}
+.border2 { border: 1px solid #008892;}
+.border3 { border: 1px solid #00A1AB;}
+.border4 { border: 1px solid #01BDC7;}
+
+#wrap
+{
+    width: 100%;
+    height: 100%;
+}
+
+#content
+{
+    clear: both;
+    min-height: 350px;
+    overflow: auto;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+/*
+    classes genéricas 
+*/
+.box-center
+{
+    margin: 0 auto;
+}
+
+.full-y
+{
+    overflow: auto;
+}
+
+.botao
+{
+    border: none;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    width: 102px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.exportar
+{
+    font: Arial, Helvetica, sans-serif 9px;
+    background: #FFF;
+    background-image: url(img/contoles/xcel.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    width: 120px;
+    height: 32px;
+    border: none;
+    color: #000;
+    text-align: right;
+    cursor: hand;
+}
+
+/* Classes genéricas */
+.tabela
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.titulo
+{
+    color: #FFF;
+    font-weight: bold;
+}
+
+.cadastrar
+{
+    float: right;
+    margin: 10px;
+    width: 16px;
+    height: 20px;
+    background-image: url('img/controls/edit.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cadastrar:hover
+{
+    background-image: none;
+}
+
+/************************************************/
+
+/*
+    BOX-TABELA
+*/
+#box-tabela
+{
+    max-height: 640px;
+}
+
+#box-tabela table td
+{
+    padding: 5px 10px;
+}
+
+#box-filtro, #box-tabela
+{
+    clear: both;
+}
+
+#box-tabela, #box-tabela table td
+{
+    text-align: center;
+    border: 1px solid #CCC;
+}
+
+/*
+    BOX FILTRO
+*/
+
+#box-filtro table td
+{
+    padding: 2px;
+}
+
+#box-filtro tr:hover td
+{
+    color: #00C;
+}
+
+/*
+    CLASS BLOCO
+*/
+
+.bloco
+{
+    height: 80px;
+    min-height: 50px;
+    float: left;
+    padding: 5px;
+    margin: 2px;
+    border-bottom: none;
+    border-right: none;
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+}
+
+.bloco table
+{
+    text-align: right;
+    border: none;
+}
+
+.bloco select, .bloco input
+{
+    float: left;
+    max-width: 100px;
+}
+
+/*
+    CLASS LINK
+*/
+.link img
+{
+    float: left;
+    margin: 0px;
+}
+
+.link span
+{
+    margin: 5px;
+}
+
+/*
+    BOX-AGENDA
+*/
+
+#box-agenda
+{
+    margin: 0 auto;
+    width: 910px;
+}
+
+#box-agenda table
+{
+    font-size: 11px;
+}
+
+/****************************************************/
+
+
+.s
+{
+    font-size: 16pt;
+    color: #fff;
+}
+
+.a
+{
+    text-align: justify;
+    font-size: 14pt;
+    line-height: 30px;
+    padding: 7px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    margin: 50px;
+    font-style: italic;
+    
+    /*color: #fff;
+    background-color: #000;
+    background-color: #008892;*/
+}
+
+span.a
+{
+    display: block;
+}
+
+.w
+{
+    min-width: 400px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.w select, .w input[type='text']
+{
+    font-size: 14pt;
+    padding: 5px;
+    margin-left: 10px;
+    
+    /*color: #fff;
+    background-color: #008892;*/
+    border: none;
+}
+
+.w select
+{
+    /*background-color: #000;
+    background-color: #00A1AB;
+    background-color: #008892;*/
+}
+
+.p
+{
+    margin: 10px;
+    font-size: 16pt;
+}
+
+.t
+{
+    margin-top: 25px;
+    height: 50px;
+    width: 200px;
+    /*
+    background-color: #FF9326;
+    background-color: #00A1AB;
+    background-color: #01BDC7;
+    color: #fff;
+    color: #000;
+    */
+    font-weight: bold;
+    border: none;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.voltar
+{
+    float: left;
+    background-image: url(img/controls/nav-back.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.avancar
+{
+    float: right;
+    background-position: right center;
+    background-image: url(img/controls/nav-forward.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.emp-logo
+{
+    float: right;
+    position: relative;
+    margin: 30px;
+}
+
+#Premissas
+{
+    font-size: 20pt;  
+}
+
+.premissa span
+{
+    float: left;
+    display: block;
+    line-height:20pt;
+    border-bottom: 1px solid #008892;
+}
+
+.premissa
+{
+    background-color: #ff0;
+    background-color: transparent;
+    color: #fff;
+    font-size: 12pt;
+    padding: 20px 0 0 20px;
+}
+
+#Validacoes
+{
+    color: #fff;
+    max-height:200px;
+    overflow-y: scroll;
+}
+
+#Validacoes td *
+{
+    margin: 5px;
+}
+
+#Validacoes label
+{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.plano
+{
+    float: left;
+    width:90%;
+    max-width: 208px;
+    height:200px;
+    margin:10px 0 0 5%;
+    margin:10px 0 0 5%;
+    color: #fff;
+    border: 3px solid #01BDC7;
+    border: 3px solid transparent;
+    border: 3px solid #008892;
+    text-align: center;
+    cursor: pointer;
+}
+
+.plano-high
+{
+    background-color: #FF9326;
+    background-image: url(img/bg/bg-high.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.plano-high .plano-descricao, .plano-high p
+{
+    color: #000;
+}
+
+.plano-low
+{
+    background-color: #008892;
+    background-image: url(img/bg/bg-low.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.plano-escolhido
+{
+    border: 3px solid #fff;
+}
+
+.plano-titulo
+{
+    margin-top: 10px;
+    font-size: 18pt;
+    padding: 5px;
+    display: block;
+}
+
+.plano-descricao
+{
+    font-size: 10pt;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    text-indent: 10px;
+}
+
+.plano-preco
+{
+    display: block;
+    margin:3px 0;
+    line-height:30pt;
+    vertical-align:middle;
+    background-color: #f00;
+    background-color: #000;
+    background-image: url(img/bg/bg-preco.png);
+    background-repeat: no-repeat;
+}
+
+.plano-preco .centarro
+{
+    font-size: 12pt;
+    vertical-align:top;
+}
+
+.plano-preco .reais
+{
+    font-size: 30pt;
+}
+
+.plano-preco .simbolo
+{
+    font-size: 14pt;
+    vertical-align: super;
+}
+
+#planos
+{
+    /*background-color: #000;
+    background-color: #008892;
+    background-color: #01BDC7;
+    */
+    margin:5px;
+}
+
+#texto
+{
+    width: 100%;
+    margin-left: 5px;
+}
+
+.obrigatorio
+{
+    border:1px solid #ff0 !important;
+}
+
+.obrigatorio-err
+{
+    background-color: #f00 !important;
+    color: #fff;
+}

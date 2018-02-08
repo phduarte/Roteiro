@@ -1,0 +1,24 @@
+﻿#header {
+    clear: both;
+    height: 39px;
+    border-bottom: 1px solid #008892;
+}
+
+    #header .titulo {
+        line-height: 40px;
+        text-indent: 10px;
+        font-family: Tahoma;
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #FFF;
+        float: left;
+        display: block;
+    }
+
+    #header .botao {
+        float: right;
+        width: 100px;
+        height: 30px;
+        margin: 5px 5px 5px 0px;
+    }

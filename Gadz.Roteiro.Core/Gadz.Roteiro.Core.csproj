@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4DD75AA-BCB0-4F82-96A4-31ADBF3913C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gadz.Roteiro.Core</RootNamespace>
+    <AssemblyName>Gadz.Roteiro.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainModel\Beneficios\Beneficio.cs" />
+    <Compile Include="DomainModel\Beneficios\IBeneficio.cs" />
+    <Compile Include="DomainModel\Beneficios\IBeneficiosRepository.cs" />
+    <Compile Include="DomainModel\Campanhas\Campanha.cs" />
+    <Compile Include="DomainModel\Campanhas\ICampanha.cs" />
+    <Compile Include="DomainModel\Campanhas\ICampanhasRepository.cs" />
+    <Compile Include="DomainModel\Clientes\Cliente.cs" />
+    <Compile Include="DomainModel\Clientes\ClienteIndefinido.cs" />
+    <Compile Include="DomainModel\Clientes\Documento.cs" />
+    <Compile Include="DomainModel\Clientes\ICliente.cs" />
+    <Compile Include="DomainModel\Interacoes\IInteracoesRepository.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracao.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoRecusada.cs" />
+    <Compile Include="DomainModel\IRepositoryRelationFor.cs" />
+    <Compile Include="DomainModel\Objecoes\IObjecao.cs" />
+    <Compile Include="DomainModel\Objecoes\IObjecoesRepository.cs" />
+    <Compile Include="DomainModel\Planos\IPlano.cs" />
+    <Compile Include="DomainModel\Planos\IPlanosRepository.cs" />
+    <Compile Include="DomainModel\UsuarioVazio.cs" />
+    <Compile Include="DomainModel\Validacoes\IValidacao.cs" />
+    <Compile Include="DomainModel\Validacoes\IValidacoesRepository.cs" />
+    <Compile Include="DomainModel\Validacoes\Validacao.cs" />
+    <Compile Include="DomainModel\Vendedores\IVendedoresRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\Data\Mock\ValidacoesRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\BeneficiosRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\CampanhasRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\InteracoesRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\ObjecoesRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\PlanosRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\PremissasRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\ValidacoesRepository.cs" />
+    <Compile Include="Infrastructure\Data\Ado\VendedoresRepository.cs" />
+    <Compile Include="DomainModel\IRepositoryReadOnly.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RoteiroServices.cs" />
+    <Compile Include="DomainModel\Interacoes\IInteracao.cs" />
+    <Compile Include="DomainModel\Interacoes\Interacao.cs" />
+    <Compile Include="DomainModel\Interacoes\IOferta.cs" />
+    <Compile Include="DomainModel\Interacoes\IRecusa.cs" />
+    <Compile Include="DomainModel\Interacoes\IStatusInteracao.cs" />
+    <Compile Include="DomainModel\Interacoes\ITentativa.cs" />
+    <Compile Include="DomainModel\Interacoes\IVenda.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoAbordagem.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoVendido.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoProposta.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoRebate.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoSondagem.cs" />
+    <Compile Include="DomainModel\Interacoes\StatusInteracaoAceite.cs" />
+    <Compile Include="DomainModel\Objecoes\Objecao.cs" />
+    <Compile Include="DomainModel\Planos\Plano.cs" />
+    <Compile Include="DomainModel\Planos\PlanoTipo.cs" />
+    <Compile Include="DomainModel\Premissas\IPremissa.cs" />
+    <Compile Include="DomainModel\Premissas\IPremissasRepository.cs" />
+    <Compile Include="DomainModel\Premissas\Premissa.cs" />
+    <Compile Include="DomainModel\Premissas\TipoPremissa.cs" />
+    <Compile Include="DomainModel\Usuario.cs" />
+    <Compile Include="DomainModel\Vendedores\IVendedor.cs" />
+    <Compile Include="DomainModel\Vendedores\Vendedor.cs" />
+    <Compile Include="Infrastructure\Data\Mock\BeneficiosRepository.cs" />
+    <Compile Include="Infrastructure\Data\Mock\CampanhasRepository.cs" />
+    <Compile Include="Infrastructure\Data\Mock\InteracoesRepository.cs" />
+    <Compile Include="Infrastructure\Data\Mock\ObjecoesRepository.cs" />
+    <Compile Include="Infrastructure\Data\Mock\PlanosRepository.cs" />
+    <Compile Include="Infrastructure\Data\Mock\PremissasRepository.cs" />
+    <Compile Include="Infrastructure\Data\Mock\VendedoresRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gadz.Common.Model\Gadz.Common.Model.csproj">
+      <Project>{c7ae4819-7604-43e7-af87-9821fc56a6da}</Project>
+      <Name>Gadz.Common.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,66 @@
+﻿/*
+    **************************************************************
+                        MALINKS - MAINBOX LINKS
+
+    Formatação dos Boxes de ícones modelo página inicial sirmione.
+
+*/
+.malink
+{
+	margin:0 auto;
+	width: 100%;
+	max-width:1024px;
+	height:100%;
+}
+
+.malink .plink
+{
+    float:left;
+	font-family:Verdana, Geneva, sans-serif;
+	padding:10px 0px 10px 10px;
+	margin:10px 0px 0px 10px;
+    width:100%;
+    max-width:485px;
+    min-height:80px;
+    /*background-image:url(Img/bg/plinks.png);*/
+    background-repeat:no-repeat;
+}
+
+.malink .plink a
+{
+	text-decoration:none;
+}
+
+.malink .plink img
+{
+	float:left;
+	width:48px;
+	height:48px;
+	border:none;
+}
+
+.malink .plink h5
+{
+	font-size:18px;
+	color:#000;
+	margin:10px 0;
+	text-indent:20px;
+	text-decoration:underline;
+}
+
+.malink .plink p
+{
+	font-size:11px;
+	color:#06C;
+	color: #fff;
+	margin:10px 0;
+	text-indent:20px;
+}
+
+.malink .plink img
+{
+	float:left;
+	width:48px;
+	height:48px;
+	border:none;
+}

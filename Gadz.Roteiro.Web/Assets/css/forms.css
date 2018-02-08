@@ -1,0 +1,110 @@
+﻿/*
+----------------------------------------------------------------------------------
+
+    FORMULÁRIOS
+
+----------------------------------------------------------------------------------
+*/
+#box-formulario #bottom
+{
+    background-color:#F8F8F8;
+    height:85px;
+    margin-bottom:0px;
+    color:#CCC;
+    line-height:27px;
+    text-indent:20px;
+}
+
+#box-formulario .botao
+{
+    margin:5px 5px 5px 0px;
+    cursor:pointer;
+}
+
+#box-formulario
+{
+    margin:0 auto;
+    background-color:#FFF;
+    border:1px solid #F3F3F3;
+    max-width:600px;
+}
+
+#box-formulario table
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    border-collapse:collapse;
+}
+
+#box-formulario select, #box-formulario input[type=text], #box-formulario input[type=password]
+{
+    padding:1px;
+    border:1px solid #CCC;
+}
+
+#box-formulario textarea
+{
+    height:50px;
+    width:300px;
+    border:1px solid #CCC;
+}
+
+#box-formulario #top
+{
+    background-color:#FEFEFE;
+    height:85px;
+    margin-bottom:0px;
+    line-height:85px;
+    text-indent:30px;
+    color:#CCC;
+}
+
+#box-formulario #top h5
+{
+    float:left;
+    color:#999;
+    margin-left:20px;
+    text-decoration:underline;
+    height:80px;
+    width: 80%;
+}
+
+#box-formulario #center
+{
+    background-color:#FFFFFF;
+    margin-bottom:0px;
+    color:#999;
+}
+
+#box-formulario label
+{
+    margin:5px;
+}
+
+#box-formulario .rotulo
+{
+    float:right;
+    margin:0px;
+}
+
+#box-formulario #center table td
+{
+    border:1px solid #fff;
+    padding:5px;
+}
+
+.fechar
+{
+    float:right;
+    margin:10px;
+    height:16px;
+    width:16px;
+    background-image:url('img/controls/close_faded.png');
+    background-repeat:no-repeat;
+}
+
+.fechar:hover
+{
+    background-image:url('img/controls/close.png');
+}

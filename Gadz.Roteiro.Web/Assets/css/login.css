@@ -1,0 +1,135 @@
+﻿#login {
+    width: 948px;
+    height: 400px;
+    margin: 0 auto;
+    border: none;
+    /*background: #FFF;*/
+    background-color: transparent;
+}
+
+    #login .logo {
+        position: relative;
+        width: 320px;
+        height: 132px;
+        top: 82px;
+        left: 30px;
+        margin: auto;
+    }
+
+    #login .caracteristicas {
+        position: relative;
+        top: 10px;
+        margin-right: 20px;
+    }
+
+        #login .caracteristicas ul {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+        }
+
+        #login .caracteristicas li {
+            list-style-image: url('img/controls/arrow.gif');
+            float: right;
+            clear: right;
+            color: #999;
+            line-height: 20px;
+        }
+
+    #login .vetrina {
+        float: left;
+        width: 379px;
+        height: 320px;
+        margin: 40px;
+    }
+
+    #login .login {
+        float: right;
+        width: 379px;
+        height: 320px;
+        /*
+    border: 1px solid #FBFBFB;
+    border: 1px solid #bbb;
+    */
+        border-left: 1px solid #01BDC7;
+        margin: 40px;
+    }
+
+    #login #box-formulario {
+        background-color: #01BDC7;
+    }
+    /*
+        TESTE
+*/
+    #login .top {
+        height: 85px;
+        margin-bottom: 0px;
+        line-height: 85px;
+        text-indent: 30px;
+        color: #CCC; /*background-color:#FEFEFE;*/
+    }
+
+    #login .center {
+        height: 150px;
+        margin-bottom: 0px;
+        color: #999;
+        color: #fff; /*background-color:#FFFFFF;*/
+    }
+
+        #login .center label {
+            float: right;
+        }
+
+        #login .center table {
+            width: 100%;
+        }
+
+            #login .center table td {
+                border: 1px solid #fff;
+                border: none;
+                padding: 8px;
+            }
+
+        #login .center table {
+            width: 100%;
+        }
+
+    #login .bottom {
+        height: 85px;
+        margin-bottom: 0px;
+        color: #CCC;
+        line-height: 27px;
+        text-indent: 20px; /*background-color:#F8F8F8;*/
+    }
+
+    #login .botao {
+        margin: 10px 0;
+        background-color: #01BDC7;
+    }
+
+    #login .logo {
+        position: relative;
+        width: 320px;
+        height: 132px;
+        top: 82px;
+        left: 30px;
+        margin: auto;
+    }
+
+    #login .caracteristicas {
+        position: relative;
+        top: 10px;
+        margin-right: 20px;
+    }
+
+        #login .caracteristicas ul {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+        }
+
+        #login .caracteristicas li {
+            list-style-image: url('img/controls/arrow.gif');
+            float: right;
+            clear: right;
+            color: #999;
+            line-height: 20px;
+        }

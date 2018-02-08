@@ -1,0 +1,43 @@
+﻿#versoes {
+    max-width: 1024px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+    #versoes div {
+        margin: 10px;
+    }
+
+        #versoes div * {
+            padding: 10px;
+        }
+
+        #versoes div h1 {
+            font-size: 20px;
+            border-bottom: 1px solid #000;
+            padding: 10px;
+        }
+
+    #versoes p {
+        font-family: Calibri;
+        font-size: 16px;
+    }
+
+    #versoes span {
+        font-size: 16px;
+        display: block;
+    }
+
+    #versoes ul {
+        font-size: 14px;
+        list-style-type: square;
+        margin-left: 20px;
+    }
+
+.atual {
+    background-color: #fefefe;
+}
+
+    .atual h1 {
+        color: #09c;
+    }

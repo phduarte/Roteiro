@@ -1,0 +1,174 @@
+﻿.color1{background-color: #000000;}
+.color2{background-color: #008892;}
+.color3{background-color: #00A1AB;}
+.color4{background-color: #01BDC7;}
+
+#header
+{
+    border-bottom: 1px solid #000;
+}
+
+#header h1
+{
+    color: #FFF;
+}
+
+#status {
+    border-bottom: 1px solid #007676;
+    border-top: 1px solid #000;
+    color: #fff;
+}
+
+#status .rota > a
+{
+    color: #ff0;
+}
+
+#status .botao
+{
+    color: #03F;
+}
+
+#content
+{
+    background-image: url(../../assets/img/bg/bg.png);
+}
+
+/**********************************************************************/
+
+#footer
+{
+    /*border-top: 1px solid #000;*/
+    border-top: 1px solid #008892;
+}
+
+#footer a, #footer a:visited
+{
+    
+}
+#footer a:hover
+{
+    color: #fff;
+}
+#footer .legal
+{
+    float: left;
+    margin-left: 13px;
+}
+#footer .legal *
+{
+    float: left;
+    margin-right: 3px;
+}
+#footer span
+{
+    display: block;
+}
+#footer .assinatura
+{
+    float: right;
+    margin-right: 13px;
+}
+#footer .assinatura *
+{
+    float: right;
+    margin-left: 3px;
+}
+#footer .separator
+{
+}
+#footer .powered-logo
+{
+    margin-top: 5px;
+}
+
+.titulo
+{
+    color: #FFF;
+    font-weight: bold;
+}
+
+.cadastrar:hover
+{
+    background-image: none;
+}
+
+/************************************************/
+.s
+{
+    color: #fff;
+}
+
+.a
+{
+    color: #fff;
+    background-color: transparent;
+}
+
+.w select, .w input[type='text']
+{
+    color: #fff; /*background-color: #0067CE;*/
+    border: 1px solid #003366;
+}
+
+.t
+{
+    color: #000;
+    border: none;
+    border: 1px solid #000;
+}
+
+.premissa span
+{
+    /*border-bottom: 1px solid #0080FF;*/
+    border-bottom: 1px solid #008892;
+}
+
+.premissa
+{
+    background-color: transparent;
+    color: #fff;
+}
+
+#Validacoes
+{
+    color: #fff;
+}
+
+#planos
+{
+    /*background-color: #0059B2;*/
+}
+
+.plano
+{
+    color: #fff;
+    border: 3px solid transparent;
+    border: 3px solid #01BDC7;
+}
+
+.plano-high
+{
+    /*background-color: #FFC926;*/
+    background-image: url(../../assets/img/bg/bg-high.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    border: 3px solid #FFBF00;
+}
+
+.plano-high .plano-descricao, .plano-high p
+{
+    color: #000;
+}
+
+.plano-low
+{
+    background-image: url(../../assets/img/bg/bg-low.png);
+    border: 3px solid #0067CE;
+    border: 3px solid #01BDC7;
+}
+
+.plano-escolhido
+{
+    border: 3px solid #fff;
+}

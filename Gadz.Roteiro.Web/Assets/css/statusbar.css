@@ -1,0 +1,52 @@
+﻿#status {
+    clear: both;
+    height: 38px;
+    font-size: 10px;
+    /*
+    background-color: #fefefe;
+    background-color: #008892;
+    border-bottom: 1px solid #F3F3F3;
+    border-bottom: 1px solid #008892;
+    border-top: 1px solid #478CD1;
+    border-top: 1px solid #008892;
+    color: #888;
+    color: #fff;
+    */
+}
+
+    #status .rota {
+        font-family: Verdana;
+        font-size: 11px;
+        float: left;
+        line-height: 38px;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+        #status .rota > a {
+            text-decoration: none;
+            color: #06C;
+            color: #ff0;
+        }
+
+            #status .rota > a:hover {
+                text-decoration: underline;
+            }
+
+    #status .perfil {
+        position: relative;
+        float: right;
+        line-height: 38px;
+        vertical-align: middle;
+        margin-right: 10px;
+        text-transform: uppercase
+    }
+
+    #status .botao {
+        position: relative;
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        float: right;
+        color: #03F;
+        margin: 13px 20px 0px 0px;
+    }

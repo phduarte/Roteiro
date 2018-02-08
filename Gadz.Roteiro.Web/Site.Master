@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Gadz.Roteiro.Web.Site" %>
+
+<%@ Register TagPrefix="uc" TagName="Header" Src="~/Controls/Header.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Footer" Src="~/Controls/Footer.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Statusbar" Src="~/Controls/Statusbar.ascx" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Roteiro</title>
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/reset.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/site.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/header.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/footer.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/statusbar.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/forms.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/css/malinks.css") %>" rel="Stylesheet" />
+    <link type="text/css" href="<%# ResolveUrl("~/assets/lib/jquery-ui-1.10.0.custom/css/smoothness/jquery-ui-1.10.0.custom.min.css") %>" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="wrap">
+    <uc:Header ID="Header" runat="Server"></uc:Header>
+    <uc:Statusbar ID="Statusbar" runat="Server"></uc:Statusbar>
+    <main id="content" class="color2">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </main><!-- content -->
+    <uc:Footer ID="Footer" runat="server"></uc:Footer>
+    <script type="text/javascript" src="<% = ResolveUrl("~/assets/lib/jquery/jquery-1.9.1.min.js") %>"></script>
+    <script type="text/javascript" src="<% = ResolveUrl("~/assets/lib/jquery-ui-1.10.0.custom/js/jquery-ui-1.10.0.custom.min.js") %>"></script>
+    <script type="text/javascript" src="<% = ResolveUrl("~/assets/lib/jscript/json.js") %>"></script>
+    <script type="text/javascript" src="<% = ResolveUrl("~/assets/js/script.js") %>"></script>
+    <asp:ContentPlaceHolder ID="Scripts" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+
+        ContentResize();
+        CenterInContent();
+
+        $(window).resize(function () { ContentResize(); CenterInContent(); });
+    </script>
+</body>
+</html>
