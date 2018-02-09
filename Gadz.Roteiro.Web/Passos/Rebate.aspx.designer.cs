@@ -13,24 +13,6 @@ namespace Gadz.Roteiro.Web.Passos {
     public partial class Rebate {
         
         /// <summary>
-        /// ImgOperacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage ImgOperacao;
-        
-        /// <summary>
-        /// Formulario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Formulario;
-        
-        /// <summary>
         /// CmbMotivo control.
         /// </summary>
         /// <remarks>
@@ -56,32 +38,5 @@ namespace Gadz.Roteiro.Web.Passos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CmbAceitou;
-        
-        /// <summary>
-        /// BtnVoltar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnVoltar;
-        
-        /// <summary>
-        /// BtnAvancar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAvancar;
-        
-        /// <summary>
-        /// TxtIdInteracao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField TxtIdInteracao;
     }
 }

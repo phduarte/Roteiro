@@ -2,7 +2,7 @@
 using Gadz.Roteiro.Core.DomainModel.Objecoes;
 using Gadz.Roteiro.Core.DomainModel.Planos;
 using Gadz.Roteiro.Core.DomainModel.Premissas;
-using Gadz.Roteiro.Core.DomainModel.Vendedores;
+using Gadz.Roteiro.Core.DomainModel.Validacoes;
 using System.Collections.Generic;
 
 namespace Gadz.Roteiro.Core.DomainModel.Campanhas {
@@ -17,7 +17,7 @@ namespace Gadz.Roteiro.Core.DomainModel.Campanhas {
         public IList<IObjecao> Objecoes { get; set; } = new List<IObjecao>();
         public IList<IPlano> Planos { get; set; } = new List<IPlano>();
         public IList<IPremissa> Premissas { get; set; } = new List<IPremissa>();
-        //public IList<IVendedor> Vendedores { get; set; } = new List<IVendedor>();
+        public IList<IValidacao> Validacoes { get; set; } = new List<IValidacao>();
 
         public Campanha() {
         }

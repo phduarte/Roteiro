@@ -4,14 +4,9 @@ namespace Gadz.Roteiro.Web.Passos {
 
     public partial class Abordagem : Passo {
 
-
-        public Abordagem() {
-
-        }
-
         protected void Page_Load(object sender, EventArgs e) {
 
-            if (Interacao == null)
+            if (interacao == null)
                 Response.Redirect("~");
 
             if (!IsPostBack) {
@@ -23,11 +18,6 @@ namespace Gadz.Roteiro.Web.Passos {
         //
         void Preencher() {
 
-            //string _nome = App.CurrentUser.Nome;
-
-            //if (_nome.IndexOf(' ') > 0)
-            //    _nome = _nome.Substring(0, _nome.IndexOf(' '));
-
             if (DateTime.Now.Hour < 12)
                 Saudacao.Text = "Bom dia!";
             else if (DateTime.Now.Hour < 18)
@@ -35,11 +25,11 @@ namespace Gadz.Roteiro.Web.Passos {
             else
                 Saudacao.Text = "Boa Noite!";
 
-            Texto.Text = Interacao?.Abordagem;
+            Texto.Text = interacao?.Abordagem;
         }
         //
         protected override bool Salvar() {
-            Interacao.IniciarConversar();
+            interacao.IniciarConversar();
             return base.Salvar();
         }
     }

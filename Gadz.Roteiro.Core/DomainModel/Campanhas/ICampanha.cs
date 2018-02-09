@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Gadz.Common.Model;
+﻿using Gadz.Common.Model;
 using Gadz.Roteiro.Core.DomainModel.Objecoes;
 using Gadz.Roteiro.Core.DomainModel.Planos;
 using Gadz.Roteiro.Core.DomainModel.Premissas;
-using Gadz.Roteiro.Core.DomainModel.Vendedores;
+using Gadz.Roteiro.Core.DomainModel.Validacoes;
+using System.Collections.Generic;
 
 namespace Gadz.Roteiro.Core.DomainModel.Campanhas {
     public interface ICampanha : IEntity {
@@ -14,6 +14,6 @@ namespace Gadz.Roteiro.Core.DomainModel.Campanhas {
         IList<IObjecao> Objecoes { get; }
         IList<IPlano> Planos { get; }
         IList<IPremissa> Premissas { get; }
-        //IList<IVendedor> Vendedores { get; }
+        IList<IValidacao> Validacoes { get; }
     }
 }

@@ -1,13 +1,15 @@
-﻿using Gadz.Roteiro.Core;
-using System;
+﻿using System;
 using System.Web.UI.WebControls;
 
 namespace Gadz.Roteiro.Web.Passos {
     public partial class Aceite : Passo {
 
-        RoteiroServices _services = RoteiroServices.Instance;
-
         protected void Page_Load(object sender, EventArgs e) {
+
+            if (interacao == null) {
+                Response.Redirect("~");
+            }
+
             if (!IsPostBack) {
                 Rota.Definir("<a href='../Default.aspx'>Início</a> > " + CampanhaAtual + " > Venda");
                 BtnAvancar.Text = "Concluir";
@@ -19,15 +21,15 @@ namespace Gadz.Roteiro.Web.Passos {
         void Preencher() {
             Validacoes.DataTextField = "Texto";
             Validacoes.DataValueField = "Id";
-            Validacoes.DataSource = _services.ListarValidacoes(Interacao.Campanha);
+            Validacoes.DataSource = interacao.Campanha.Validacoes;
             Validacoes.DataBind();
         }
 
         protected override void Voltar(object sender, EventArgs e) {
-            if (Interacao.Aceitou) {
-                RedirecionarPara($"~/Passos/Proposta.aspx?id={Interacao.Id}");
+            if (interacao.Aceitou) {
+                RedirecionarPara($"~/Passos/Proposta.aspx?id={interacao.Id}");
             } else {
-                RedirecionarPara($"~/Passos/Rebate.aspx?id={Interacao.Id}");
+                RedirecionarPara($"~/Passos/Rebate.aspx?id={interacao.Id}");
             }
         }
         //
@@ -35,13 +37,14 @@ namespace Gadz.Roteiro.Web.Passos {
 
             foreach (ListItem i in Validacoes.Items) {
                 if (i.Selected) {
-                    Interacao.MarcarValidacao(i.Value);
+                    var validacao = _roteiroServices.PegarValidacao(i.Value);
+                    interacao.MarcarValidacao(validacao);
                 } else {
                     return false;
                 }
             }
 
-            Interacao.ConcluirVenda();
+            interacao.ConcluirVenda();
 
             return base.Salvar();
         }

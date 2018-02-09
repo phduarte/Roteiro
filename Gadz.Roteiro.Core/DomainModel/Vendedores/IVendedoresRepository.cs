@@ -1,7 +1,9 @@
-﻿using Gadz.Roteiro.Core.DomainModel.Campanhas;
+﻿using Gadz.Common.Model;
+using Gadz.Roteiro.Core.DomainModel.Campanhas;
 
 namespace Gadz.Roteiro.Core.DomainModel.Vendedores {
-    public interface IVendedoresRepository : IRepositoryRelationFor<IVendedor,ICampanha>, IRepositoryReadOnly<IVendedor> {
+    public interface IVendedoresRepository : IRepositoryReadOnly<IVendedor>, IRepositoryRelationFor<IVendedor, ICampanha> {
+
         IVendedor Find(string username);
         bool Validate(string username, string password);
     }

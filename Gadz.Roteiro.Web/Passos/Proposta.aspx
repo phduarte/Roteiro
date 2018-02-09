@@ -28,7 +28,7 @@
                     <% foreach (var plano in planos) { %>
                     <div id="<% = plano.Id %>" class="plano plano-<% = plano.Tipo %>" ondblclick="return openTopSBX('<% = plano.Nome %>','<% = plano.Id %>')">
                         <h2 class="plano-titulo"><% = plano.Nome %></h2>
-                        <p class="plano-descricao"><% = plano.Localidade %></p>
+                        <p class="plano-descricao"><% = plano.Descricao %></p>
                         <span class="plano-preco">
                             <span class="simbolo">R$</span>
                             <span class="reais"><% = string.Format("{0:N0}", plano.Preco - (plano.Preco % (int)plano.Preco))%></span>

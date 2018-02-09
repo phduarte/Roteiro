@@ -1,5 +1,4 @@
 ﻿using Gadz.Common.Model;
-using Gadz.Roteiro.Core.DomainModel.Campanhas;
 
 namespace Gadz.Roteiro.Core.DomainModel.Premissas {
     internal class Premissa : Entity, IPremissa {
@@ -10,7 +9,6 @@ namespace Gadz.Roteiro.Core.DomainModel.Premissas {
         public string Pergunta { get; set; }
         public string Resposta { get; set; }
         public int Ordem { get; set; }
-        public ICampanha Campanha { get; set; }
 
         public Premissa() {
 

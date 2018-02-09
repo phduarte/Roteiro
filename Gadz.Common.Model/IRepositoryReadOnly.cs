@@ -1,6 +1,4 @@
-﻿using Gadz.Common.Model;
-
-namespace Gadz.Roteiro.Core.DomainModel {
+﻿namespace Gadz.Common.Model {
     public interface IRepositoryReadOnly<T> where T: IEntity {
         T Get(Identity id);
     }

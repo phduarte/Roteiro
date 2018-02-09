@@ -20,10 +20,10 @@ namespace Gadz.Roteiro.Web.Campanhas {
                 return;
             }
 
-            if (!IsPostBack)
-                Rota.Definir("<a href='../Default.aspx'>Início</a> > Campanhas");
+            Rota.Definir("<a href='../Default.aspx'>Início</a> > Campanhas");
 
-            campanhas = _roteiroServices.ListarCampanhasDoUsuario(App.CurrentUser.Id);
+            var vendedor = _roteiroServices.PegarVendedorPorUsername(User.Identity.Name);
+            campanhas = vendedor.Campanhas;
         }
     }
 }

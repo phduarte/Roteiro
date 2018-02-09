@@ -2,6 +2,7 @@
 using Gadz.Roteiro.Core.DomainModel.Campanhas;
 using Gadz.Roteiro.Core.DomainModel.Vendedores;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
@@ -47,7 +48,7 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
             return u != null && u.Validar(password);
         }
 
-        protected override T Map<T>(dynamic rec) {
+        protected override T Map<T>(SqlDataReader rec) {
 
             var vendedor = new Vendedor(rec["Id"].ToString()) {
                 Username = rec["Username"].ToString(),

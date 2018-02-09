@@ -1,6 +1,6 @@
 ﻿using Gadz.Common.Model;
 
-namespace Gadz.Roteiro.Core.DomainModel {
+namespace Gadz.Roteiro.Access.DomainModel {
     public abstract class Usuario : Entity, IUser {
 
         public Name Nome { get; set; }

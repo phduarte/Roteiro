@@ -1,19 +1,42 @@
-﻿using System;
+﻿using Gadz.Roteiro.Core.DomainModel.Premissas;
+using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace Gadz.Roteiro.Web.Passos {
     public partial class Sondagem : Passo {
 
+        IList<IPremissa> _premissas;
+
         protected void Page_Load(object sender, EventArgs e) {
+
+            if (interacao == null)
+                Response.Redirect("~");
+
+            _premissas = interacao.Campanha.Premissas;
+
+            if (_premissas.Count == 0) {
+                Pular();
+            }
+
+            Rota.Definir($"<a href='../Default.aspx'>Início</a> > {CampanhaAtual} > Sondagem");
             if (!IsPostBack) {
-                Rota.Definir($"<a href='../Default.aspx'>Início</a> > {CampanhaAtual} > Sondagem");
                 Preencher();
             }
         }
         //
         void Preencher() {
-            
-            foreach (var premissa in Interacao.Premissas) {
+
+            foreach (var premissa in _premissas) {
+
+                if (interacao.Premissas.Contains(premissa)) {
+                    foreach (var i in interacao.Premissas) {
+                        if (premissa.Id.Equals(i.Id)) {
+                            premissa.Responder(i.Resposta);
+                            break;
+                        }
+                    }
+                }
 
                 var _painel = new Panel() {
                     CssClass = "premissa"
@@ -21,7 +44,7 @@ namespace Gadz.Roteiro.Web.Passos {
                 _painel.Controls.Add(new Label { Text = premissa.Pergunta });
 
                 switch (premissa.Tipo) {
-                    case Core.DomainModel.Premissas.TipoPremissa.textbox:
+                    case TipoPremissa.textbox:
                         var textbox = new TextBox {
                             ID = premissa.Id,
                             CssClass = "color3 border2 " + premissa.Classe,
@@ -30,7 +53,7 @@ namespace Gadz.Roteiro.Web.Passos {
                         };
                         _painel.Controls.Add(textbox);
                         break;
-                    case Core.DomainModel.Premissas.TipoPremissa.dropdownlist:
+                    case TipoPremissa.dropdownlist:
 
                         var dropDown = new DropDownList {
                             ID = premissa.Id,
@@ -64,7 +87,9 @@ namespace Gadz.Roteiro.Web.Passos {
                 var idPremissa = i.Replace("ctl00$ContentPlaceHolder1$", "");
 
                 if (!(idPremissa == "BtnAvancar" || idPremissa == "TxtIdInteracao")) {
-                    Interacao.ResponderPremissa(idPremissa, Request.Form[i]);
+                    var premissa = _roteiroServices.PegarPremissa(idPremissa);
+                    premissa.Responder(Request.Form[i]);
+                    interacao.ResponderPremissa(premissa);
                 }
             }
 

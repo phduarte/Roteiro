@@ -23,7 +23,7 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Mock {
             var premissas = new PremissasRepository();
             var objecoes = new ObjecoesRepository();
             var planos = new PlanosRepository();
-            var vendedores = new VendedoresRepository();
+            var validacoes = new ValidacoesRepository();
 
             IList<ICampanha> lista = new List<ICampanha>();
 
@@ -44,9 +44,9 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Mock {
             campanha2.Premissas = premissas.GetAllOf(campanha2).ToList();
             campanha3.Premissas = premissas.GetAllOf(campanha3).ToList();
 
-            //campanha1.Vendedores = vendedores.GetAllOf(campanha1).ToList();
-            //campanha2.Vendedores = vendedores.GetAllOf(campanha2).ToList();
-            //campanha3.Vendedores = vendedores.GetAllOf(campanha3).ToList();
+            campanha1.Validacoes = validacoes.GetAllOf(campanha1).ToList();
+            campanha2.Validacoes = validacoes.GetAllOf(campanha2).ToList();
+            campanha3.Validacoes = validacoes.GetAllOf(campanha3).ToList();
 
             lista.Add(campanha1);
             lista.Add(campanha2);

@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Rebate.aspx.cs" Inherits="Gadz.Roteiro.Web.Passos.Rebate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .p.a{
+            background-color: #000000;
+            color: #ff0000;
+            text-align: center
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <img id="ImgOperacao" src="" class="emp-logo" alt="" runat="server" />
@@ -12,7 +19,7 @@
                 </asp:dropdownlist>
             </div>
             <div class="p a">
-                <asp:label id="LbContraArgumento" runat="server"></asp:label>
+                <asp:label id="LbContraArgumento" runat="server">Contra-Argumento</asp:label>
             </div>
             <div style=" margin:30px;">
                 <label class="s">Após o contra-argumento o cliente aceitou a proposta?</label>

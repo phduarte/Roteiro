@@ -25,6 +25,10 @@ namespace Gadz.Common.Model {
             return new Identity(Guid.NewGuid().ToString());
         }
 
+        public static Identity Create(string id) {
+            return new Identity(id);
+        }
+
         public override bool Equals(object obj) {
 
             if(obj is Identity id) {

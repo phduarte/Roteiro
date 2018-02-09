@@ -1,23 +1,34 @@
-﻿using System;
+﻿using Gadz.Roteiro.Core.DomainModel.Objecoes;
+using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace Gadz.Roteiro.Web.Passos {
     public partial class Rebate : Passo {
+
+        IList<IObjecao> _objecoes;
+
         //
         protected void Page_Load(object sender, EventArgs e) {
 
-            if (Interacao == null)
+
+            if (interacao == null)
                 Response.Redirect("~");
 
-            LbContraArgumento.Text = "";
+            _objecoes = interacao.Campanha.Objecoes;
+
+            if (_objecoes.Count == 0) {
+                Pular();
+            }
+
+            LbContraArgumento.Text = string.Empty;
+
+            Rota.Definir($"<a href='../Default.aspx'>Início</a> > {CampanhaAtual} > Rebate");
 
             if (!IsPostBack) {
-                Rota.Definir($"<a href='../Default.aspx'>Início</a> > {CampanhaAtual} > Rebate");
-
                 ListarMotivos();
                 Preencher();
                 ValidarSituacaoOferta();
-
             }
         }
         //
@@ -31,7 +42,7 @@ namespace Gadz.Roteiro.Web.Passos {
                     _direcao = Request.QueryString["d"];
                     if (_direcao.Equals("1")) {
                         Avancar();
-                    }  else if (_direcao.Equals("-1"))
+                    } else if (_direcao.Equals("-1"))
                         Voltar();
                 }
             }
@@ -41,13 +52,14 @@ namespace Gadz.Roteiro.Web.Passos {
 
             CmbMotivo.Items.Add("Selecione...");
 
-            foreach(var i in Interacao.Objecoes) {
+            foreach (var i in _objecoes) {
                 CmbMotivo.Items.Add(new ListItem(i.Motivo, i.Id));
             }
         }
         //
         protected void Preencher(object sender, EventArgs e) {
-            LbContraArgumento.Text = Interacao.PegarContraArgumento(CmbMotivo.SelectedValue);
+            var objecao = _roteiroServices.PegarObjecao(CmbMotivo.SelectedValue);
+            LbContraArgumento.Text = objecao.ContraArgumento;
         }
         //
         private void Terminar(object sender, EventArgs e) {
@@ -56,17 +68,19 @@ namespace Gadz.Roteiro.Web.Passos {
         //
         private void Preencher() {
 
-            if (Interacao.Objecao == null)
-                return;
+            if (interacao.Objecoes.Count == 1) {
+                CmbMotivo.SelectedValue = interacao.Objecoes[0].Id.ToString();
+                LbContraArgumento.Text = interacao.Objecoes[0].ContraArgumento;
+            }
 
-            CmbMotivo.SelectedValue = Interacao.Objecao.Id.ToString();
-            LbContraArgumento.Text = Interacao.Objecao.ContraArgumento;
-            CmbAceitou.SelectedValue = Interacao.Aceitou.ToString() ;
+            CmbAceitou.SelectedValue = interacao.Aceitou.ToString();
         }
         //
         protected override void Avancar(object sender, EventArgs e) {
 
-            Interacao.InformarMotivoRejeicao(CmbMotivo.SelectedValue);
+            var motivo = _roteiroServices.PegarObjecao(CmbMotivo.SelectedValue);
+
+            interacao.InformarMotivoRejeicao(motivo);
 
             if (Salvar()) {
                 if (CmbAceitou.SelectedValue.Equals("0")) {
@@ -82,9 +96,9 @@ namespace Gadz.Roteiro.Web.Passos {
         protected override bool Salvar() {
 
             if (CmbAceitou.SelectedValue.Equals("1")) {
-                Interacao.AceitarProposta();
+                interacao.AceitarProposta();
             } else {
-                Interacao.RejeitarProposta();
+                interacao.RecusarContraProposta();
             }
 
             return base.Salvar();

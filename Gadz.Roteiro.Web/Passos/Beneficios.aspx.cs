@@ -16,7 +16,8 @@ namespace Gadz.Roteiro.Web.Passos {
         
         protected void Page_Load(object sender, EventArgs e) {
             if (Request.QueryString != null && Request.QueryString["id"] != null) {
-                lista = _services.ListarBenfeficiosDoPlano(Request.QueryString["id"]);
+                var plano = _services.PegarPlano(Request.QueryString["id"]);
+                lista = plano.Beneficios;
             }
         }
     }

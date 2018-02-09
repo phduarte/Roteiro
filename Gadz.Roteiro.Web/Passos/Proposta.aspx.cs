@@ -11,7 +11,7 @@ namespace Gadz.Roteiro.Web.Passos {
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            if (Interacao == null)
+            if (interacao == null)
                 Response.Redirect("~");
 
             if (!IsPostBack) {
@@ -34,72 +34,24 @@ namespace Gadz.Roteiro.Web.Passos {
                 PreencherArvore();
             } else {
 
-                Interacao.EscolherPlano(TxtPlanoId.Value);
+                var plano = _roteiroServices.PegarPlano(TxtPlanoId.Value);
+
+                interacao.EscolherPlano(plano);
 
                 Salvar();
-                Response.Redirect($"~/Passos/{Interacao.Status}.aspx?.id={Interacao.Id}");
+                Response.Redirect($"~/Passos/{interacao.Status}.aspx?id={interacao.Id}");
             }
         }
         //
         protected void Preencher() {
 
-            planos = Interacao.Planos;
-            TxtPlanoId.Value = Interacao.PlanoEscolhido?.Id;
-            CmbAceitou.SelectedValue = Interacao.Aceitou ? "1" : "0";
+            planos = interacao.Campanha.Planos;
 
-            //using(conn = new Connection()){
+            if (interacao.Planos.Count == 1) {
+                TxtPlanoId.Value = interacao.Planos[0].Id;
+            }
 
-            //    sql = @"select convert(decimal(9,2),total) as total
-            //            from vw_InteracoesGastoMensal 
-            //            where Interacao_Id = {0}";
-
-            //    using (SqlDataReader rec = conn.Query(sql, TxtIdInteracao.Value)) {
-            //        if (rec != null && rec.HasRows && rec.Read()) {
-            //            TxtGastoMensal.Value = rec[0].ToString().ToMoney();
-            //        }
-            //    }
-
-            //    //localidade
-            //    sql = @"select Resposta
-            //            from vw_InteracoesLocalidade
-            //            where Interacao_Id = {0}";
-
-            //    using (SqlDataReader rec = conn.Query(sql, TxtIdInteracao.Value)) {
-            //        if (rec != null && rec.HasRows && rec.Read()) {
-            //            TxtLocalidade.Value = rec["Resposta"].ToString();
-            //        }
-            //    }
-
-            //    sql = @"select a.ArgumentoMenor,a.ArgumentoIgual, a.ArgumentoMaior
-            //            from Campanhas a with(nolock) 
-            //            where a.Id = (select top 1 Campanha_Id from Interacoes with(nolock) where Id = {0})";
-
-            //    using (SqlDataReader rec = conn.Query(sql, TxtIdInteracao.Value)) {
-            //        if (rec != null && rec.HasRows && rec.Read()) {
-            //            argumentos = "[\"" + rec[0].ToString() + "\",\"" + rec[1].ToString() + "\",\"" + rec[2].ToString() + "\"]";
-            //        }
-            //    }
-
-            //    sql = @"select Id,Nome,Descricao,Preco,PlanoTipo_Id,Localidade,Tipo
-            //            from fn_InteracaoPlanos({0},'{1}','{2}')
-            //            where Visivel = 1 
-            //            order by Preco desc;";
-
-            //    using (SqlDataReader rec = conn.Query(sql, TxtIdInteracao.Value, TxtLocalidade.Value, TxtGastoMensal.Value)) {
-            //        if (rec != null && rec.HasRows) {
-            //            while (rec.Read()) {
-            //                planos.Add(new Plano() {
-            //                    Id = rec["Id"].ToString().ToInt(),
-            //                    Nome = rec["Nome"].ToString(),
-            //                    Descricao = rec["Descricao"].ToString(),
-            //                    Preco = decimal.Parse(rec["Preco"].ToString().ToMoney()) / 100,
-            //                    Tipo = (PlanoTipo)rec["PlanoTipo_Id"].ToString().ToInt(),
-            //                    Localidade = rec["Localidade"].ToString()
-            //                });
-            //            }
-            //        }
-            //    }
-            //}
+            CmbAceitou.SelectedValue = interacao.Aceitou ? "1" : "0";
         }
         //
         protected void PreencherArvore() {
@@ -117,9 +69,9 @@ namespace Gadz.Roteiro.Web.Passos {
         protected override bool Salvar() {
 
             if (CmbAceitou.SelectedValue.Equals("1")) {
-                Interacao.AceitarProposta();
+                interacao.AceitarProposta();
             } else {
-                Interacao.RejeitarProposta();
+                interacao.RejeitarProposta();
             }
 
             return base.Salvar();

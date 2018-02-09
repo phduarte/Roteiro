@@ -17,23 +17,23 @@ namespace Gadz.Roteiro.Core.DomainModel.Interacoes {
         public IVendedor Vendedor { get; set; }
         public IStatusInteracao Status { get; set; } = new StatusInteracaoAbordagem();
         public ICampanha Campanha { get; set; }
-        
+
+        //sondagem
+        public IList<IPremissa> Premissas { get; set; } = new List<IPremissa>();
+
         //oferta
         public string Abordagem => Campanha.Abordagem
             .Replace("<nome>", Vendedor.Nome.FirstName)
             .Replace("<campanha>", Campanha.Nome);
-        public IList<IPlano> Planos => Campanha.Planos;
+        public IList<IPlano> Planos { get; set; } = new List<IPlano>();
         public ICliente Cliente { get; set; } = new ClienteIndefinido();
         public bool Aceitou => Status.Aceite;
-        public IList<IPremissa> Premissas => Campanha.Premissas;
 
         //venda
-        public IPlano PlanoEscolhido { get; set; }
         public IList<IValidacao> Validacoes { get; set; } = new List<IValidacao>();
 
         //recusa
-        public IObjecao Objecao { get; set; }
-        public IList<IObjecao> Objecoes => Campanha.Objecoes;
+        public IList<IObjecao> Objecoes { get; set; } = new List<IObjecao>();
 
         public DateTime Inicio { get; set; } = DateTime.Now;
         public DateTime? Termino { get; set; }
@@ -43,20 +43,16 @@ namespace Gadz.Roteiro.Core.DomainModel.Interacoes {
         }
 
         public Interacao(Identity id) : base(id) {
+
         }
 
         public void IniciarConversar() {
             Status = new StatusInteracaoSondagem();
         }
 
-        public void ResponderPremissa(Identity idPremissa, string resposta) {
-
-            if (string.IsNullOrEmpty(resposta))
-                return;
-
-            var premissa = Premissas.FirstOrDefault(x => x.Id.Equals(idPremissa));
-            premissa?.Responder(resposta);
-
+        public void ResponderPremissa(IPremissa premissa) {
+            Premissas.Clear();
+            Premissas.Add(premissa);
             Status = new StatusInteracaoProposta();
         }
 
@@ -77,25 +73,25 @@ namespace Gadz.Roteiro.Core.DomainModel.Interacoes {
             return objecao?.ContraArgumento;
         }
 
-        public void EscolherPlano(Identity plano) {
+        public void EscolherPlano(IPlano plano) {
             Status = new StatusInteracaoProposta();
-            PlanoEscolhido = Planos.FirstOrDefault(x=>x.Id.Equals(plano));
+            Planos.Clear();
+            Planos.Add(plano);
         }
 
-        public void MarcarValidacao(Identity idValidacao) {
-            //var validacao = Validacoes.FirstOrDefault(x => x.Id.Equals(idValidacao));
-            Validacoes.Add(new Validacao(idValidacao));
-            
+        public void MarcarValidacao(IValidacao validacao) {
             Status = new StatusInteracaoAceite();
+            Validacoes.Add(validacao);
         }
 
         public void ConcluirVenda() {
             Status = new StatusInteracaoVendido();
         }
 
-        public void InformarMotivoRejeicao(Identity idObjecao) {
+        public void InformarMotivoRejeicao(IObjecao objecao) {
             Status = new StatusInteracaoRebate();
-            Objecao = Objecoes.FirstOrDefault(x => x.Id.Equals(idObjecao));
+            Objecoes.Clear();
+            Objecoes.Add(objecao);
         }
         
         public void AceitarProposta() {
@@ -104,6 +100,10 @@ namespace Gadz.Roteiro.Core.DomainModel.Interacoes {
 
         public void RejeitarProposta() {
             Status = new StatusInteracaoRebate();
+        }
+
+        public void RecusarContraProposta() {
+            Status = new StatusInteracaoRecusada();
         }
 
         public override string ToString() {

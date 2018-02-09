@@ -53,6 +53,6 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
             }
         }
 
-        protected abstract T Map<T>(dynamic rec) where T : IEntity;
+        protected abstract T Map<T>(SqlDataReader rec) where T : IEntity;
     }
 }

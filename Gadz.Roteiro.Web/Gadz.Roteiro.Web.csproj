@@ -388,6 +388,10 @@
       <Project>{f4dd75aa-bcb0-4f82-96a4-31adbf3913c4}</Project>
       <Name>Gadz.Roteiro.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Gadz.Roteiro.Access\Gadz.Roteiro.Access.csproj">
+      <Project>{302b9443-438e-449f-afb4-2287562dd5a8}</Project>
+      <Name>Gadz.Roteiro.Access</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

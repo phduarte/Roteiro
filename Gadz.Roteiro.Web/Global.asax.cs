@@ -50,17 +50,18 @@ namespace Gadz.Roteiro.Web {
                 _msg = HttpContext.Current.Error.InnerException.Message;
             }
 
-            //
-            try {
-                Server.ClearError();
-            } catch (Exception) {
-            }
-
             if (Context.User != null && Context.User.Identity.IsAuthenticated)
                 Logger.WriteError($"Usuário {Context.User.Identity.Name}, ao acessar {_url} reporta {_msg}");
             else
                 Logger.WriteError($"Usuário não logado, ao acessar {_url} reporta {_msg}");
 
+#if !DEBUG
+            try {
+                Server.ClearError();
+            } catch (Exception) {
+            }
+
+#endif
         }
         //
         protected void Session_End(object sender, EventArgs e) {

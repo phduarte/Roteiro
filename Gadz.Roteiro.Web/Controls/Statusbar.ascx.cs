@@ -6,9 +6,11 @@ namespace Gadz.Roteiro.Web.Controls {
         protected bool logado => Context.User.Identity.IsAuthenticated;
 
         protected void Page_Load(object sender, EventArgs e) {
-            lbRota.Text = new Pagina().Rota.Pegar();
 
-            //App.CurrentUser.Nome
+            if (App.CurrentUser == null)
+                return;
+
+            lbRota.Text = new Pagina().Rota.Pegar();
             lbPerfil.Text = string.Format($"{App.CurrentUser.Username} | {App.CurrentUser.Nome} | {App.CurrentUser.Perfil}");
         }
     }

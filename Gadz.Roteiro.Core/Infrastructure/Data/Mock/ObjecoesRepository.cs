@@ -1,5 +1,6 @@
 ﻿using Gadz.Common.Model;
 using Gadz.Roteiro.Core.DomainModel.Campanhas;
+using Gadz.Roteiro.Core.DomainModel.Interacoes;
 using Gadz.Roteiro.Core.DomainModel.Objecoes;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,10 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Mock {
         }
 
         public IEnumerable<IObjecao> GetAllOf(ICampanha campanha) {
+            return _cache;
+        }
+
+        public IEnumerable<IObjecao> GetAllOf(IInteracao entity) {
             return _cache;
         }
 

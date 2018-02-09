@@ -3,7 +3,6 @@ using Gadz.Roteiro.Core.DomainModel.Interacoes;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Web;
 
 namespace Gadz.Roteiro.Web.Passos {
 
@@ -12,17 +11,9 @@ namespace Gadz.Roteiro.Web.Passos {
         IList<string> passos = new List<string> { "Iniciar", "Abordagem", "Sondagem", "Proposta", "Rebate", "Aceite", "Terminar" };
         protected RoteiroServices _roteiroServices;
 
-        public string CampanhaAtual => Interacao != null ? Interacao.Campanha.Nome : string.Empty;
-        public string UltimaPaginaVisualizada => $"~/Passos/{Interacao?.Status}.aspx?id={Interacao?.Id}";
-
-        public IInteracao Interacao {
-            get {
-                return HttpContext.Current.Session["interacao"] as IInteracao;
-            }
-            set {
-                HttpContext.Current.Session["interacao"] = value;
-            }
-        }
+        public string CampanhaAtual => interacao != null ? interacao.Campanha.Nome : string.Empty;
+        public string UltimaPaginaVisualizada => $"~/Passos/{interacao?.Status}.aspx?id={interacao?.Id}";
+        protected IInteracao interacao;
 
         #region Page Components
 
@@ -39,6 +30,7 @@ namespace Gadz.Roteiro.Web.Passos {
         protected Passo() {
             _roteiroServices = RoteiroServices.Instance;
             Page.Load += new EventHandler(DefinirImagem);
+            Page.PreLoad += (sender, e) => { interacao = PegarInteracaoAtual(); };
         }
 
         #endregion
@@ -46,9 +38,7 @@ namespace Gadz.Roteiro.Web.Passos {
         #region methods
         //
         protected virtual bool Salvar() {
-
-            _roteiroServices.SalvarInteracao(Interacao);
-
+            _roteiroServices.SalvarInteracao(interacao);
             return true;
         }
         //
@@ -73,11 +63,11 @@ namespace Gadz.Roteiro.Web.Passos {
         }
         //
         protected void Terminar() {
-            RedirecionarPara($"~/Passos/Terminar.aspx?id={Interacao.Id}&d=1");
+            RedirecionarPara($"~/Passos/Terminar.aspx?id={interacao.Id}&d=1");
         }
         //
         protected void Pular() {
-            RedirecionarPara(IrPara(2));
+            RedirecionarPara(IrPara(1));
         }
         //
         string IrPara(int movimento) {
@@ -92,7 +82,7 @@ namespace Gadz.Roteiro.Web.Passos {
             if (x > (passos.Count - 1))
                 x = passos.Count - 1;
 
-            return string.Format("~/Passos/{0}.aspx?id={1}&d={2}", passos[x], Interacao.Id, movimento);
+            return string.Format("~/Passos/{0}.aspx?id={1}&d={2}", passos[x], interacao.Id, movimento);
         }
         //
         protected void Avancar() {
@@ -114,6 +104,16 @@ namespace Gadz.Roteiro.Web.Passos {
         protected virtual void Voltar(object sender, EventArgs e) {
             Voltar();
         }
+
+        protected IInteracao PegarInteracaoAtual() {
+            string idInteracaoAtual = PegarParametroQuerystring("id");
+            if (!string.IsNullOrEmpty(idInteracaoAtual)) {
+                interacao = _roteiroServices.PegarInteracao(idInteracaoAtual);
+            }
+
+            return interacao;
+        }
+
         //
         string PassoAtual() {
             return new FileInfo(Request.Url.LocalPath).Name.ToLower();

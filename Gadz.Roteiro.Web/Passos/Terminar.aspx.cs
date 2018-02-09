@@ -5,10 +5,34 @@ namespace Gadz.Roteiro.Web.Passos {
 
         //
         protected void Page_Load(object sender, EventArgs e) {
+
+            if (interacao == null)
+                Response.Redirect("~");
+
+            BtnAvancar.Text = "Terminar";
+            lbProtocolo.Text = interacao.Id;
+
+            if(interacao.Status.Vendida) {
+                txtTexto.Text = "Obrigado pela sua preferência e parabéns pela sua escolha.";
+            } else {
+                txtTexto.Text = "Obrigado pela sua atenção. Esperamos que haja outra oportunidade futuramente.";
+            }
+        }
+
+        protected override void Voltar(object sender, EventArgs e) {
+
+            if (interacao.Status.Vendida) {
+                Response.Redirect($"Aceite.aspx?id={interacao.Id}");
+            } else {
+                Response.Redirect($"Rebate.aspx?id={interacao.Id}");
+            }
+        }
+
+        protected override void Avancar(object sender, EventArgs e) {
+
             if (Salvar()) {
                 if (Request.QueryString != null && Request.QueryString["id"] != null) {
-                    //Response.Redirect(string.Format("~/Passos/Iniciar.aspx?idCampanha={0}", PegarCampanhaDaInteracao(Request.QueryString["id"])));
-                    Response.Redirect($"~/Passos/Iniciar.aspx?c={Interacao.Campanha.Id}");
+                    Response.Redirect($"Iniciar.aspx?c={interacao.Campanha.Id}");
                 } else {
                     Response.Redirect("~/Default.aspx");
                 }
@@ -18,7 +42,7 @@ namespace Gadz.Roteiro.Web.Passos {
         }
         //
         protected override bool Salvar() {
-            Interacao.Terminar();
+            interacao.Terminar();
             return base.Salvar();
         }
     }

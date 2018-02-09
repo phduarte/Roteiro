@@ -54,12 +54,10 @@
     <Compile Include="DomainModel\Interacoes\IInteracoesRepository.cs" />
     <Compile Include="DomainModel\Interacoes\StatusInteracao.cs" />
     <Compile Include="DomainModel\Interacoes\StatusInteracaoRecusada.cs" />
-    <Compile Include="DomainModel\IRepositoryRelationFor.cs" />
     <Compile Include="DomainModel\Objecoes\IObjecao.cs" />
     <Compile Include="DomainModel\Objecoes\IObjecoesRepository.cs" />
     <Compile Include="DomainModel\Planos\IPlano.cs" />
     <Compile Include="DomainModel\Planos\IPlanosRepository.cs" />
-    <Compile Include="DomainModel\UsuarioVazio.cs" />
     <Compile Include="DomainModel\Validacoes\IValidacao.cs" />
     <Compile Include="DomainModel\Validacoes\IValidacoesRepository.cs" />
     <Compile Include="DomainModel\Validacoes\Validacao.cs" />
@@ -74,7 +72,6 @@
     <Compile Include="Infrastructure\Data\Ado\PremissasRepository.cs" />
     <Compile Include="Infrastructure\Data\Ado\ValidacoesRepository.cs" />
     <Compile Include="Infrastructure\Data\Ado\VendedoresRepository.cs" />
-    <Compile Include="DomainModel\IRepositoryReadOnly.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -101,7 +98,6 @@
     <Compile Include="DomainModel\Premissas\IPremissasRepository.cs" />
     <Compile Include="DomainModel\Premissas\Premissa.cs" />
     <Compile Include="DomainModel\Premissas\TipoPremissa.cs" />
-    <Compile Include="DomainModel\Usuario.cs" />
     <Compile Include="DomainModel\Vendedores\IVendedor.cs" />
     <Compile Include="DomainModel\Vendedores\Vendedor.cs" />
     <Compile Include="Infrastructure\Data\Mock\BeneficiosRepository.cs" />
@@ -121,7 +117,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

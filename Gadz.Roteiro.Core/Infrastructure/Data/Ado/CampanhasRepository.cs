@@ -3,8 +3,10 @@ using Gadz.Roteiro.Core.DomainModel.Campanhas;
 using Gadz.Roteiro.Core.DomainModel.Objecoes;
 using Gadz.Roteiro.Core.DomainModel.Planos;
 using Gadz.Roteiro.Core.DomainModel.Premissas;
+using Gadz.Roteiro.Core.DomainModel.Validacoes;
 using Gadz.Roteiro.Core.DomainModel.Vendedores;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
@@ -13,17 +15,17 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
         #region fields
 
         readonly IPremissasRepository _premissas;
-        readonly IVendedoresRepository _vendedores;
         readonly IObjecoesRepository _objecoes;
         readonly IPlanosRepository _planos;
+        readonly IValidacoesRepository _validacoes;
 
         #endregion
 
         public CampanhasRepository() {
             _premissas = new PremissasRepository();
-            _vendedores = new VendedoresRepository(this);
-            _objecoes = new ObjecoesRepository(this);
-            _planos = new PlanosRepository();
+            _objecoes = new ObjecoesRepository();
+            _planos = new PlanosRepository(new BeneficiosRepository());
+            _validacoes = new ValidacoesRepository();
         }
 
         public ICampanha Get(Identity id) {
@@ -38,7 +40,7 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
             return GetAllOf<ICampanha>(sql, vendedor);
         }
 
-        protected override T Map<T>(dynamic rec) {
+        protected override T Map<T>(SqlDataReader rec) {
 
             var campanha = new Campanha(rec["Id"].ToString()) {
                 Abordagem = rec["Abordagem"].ToString(),
@@ -50,6 +52,7 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
             campanha.Objecoes = _objecoes.GetAllOf(campanha).ToList();
             campanha.Planos = _planos.GetAllOf(campanha).ToList();
             campanha.Premissas = _premissas.GetAllOf(campanha).ToList();
+            campanha.Validacoes = _validacoes.GetAllOf(campanha).ToList();
 
             return (T)(object)campanha;
         }

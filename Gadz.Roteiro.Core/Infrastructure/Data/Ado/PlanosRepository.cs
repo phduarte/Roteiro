@@ -1,18 +1,19 @@
 ﻿using Gadz.Common.Model;
 using Gadz.Roteiro.Core.DomainModel.Beneficios;
 using Gadz.Roteiro.Core.DomainModel.Campanhas;
+using Gadz.Roteiro.Core.DomainModel.Interacoes;
 using Gadz.Roteiro.Core.DomainModel.Planos;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
     internal class PlanosRepository : RepositoryBase, IPlanosRepository {
 
-        ICampanha _campanha;
         readonly IBeneficiosRepository _beneficios;
 
-        public PlanosRepository() {
-            _beneficios = new BeneficiosRepository();
+        public PlanosRepository(IBeneficiosRepository beneficios) {
+            _beneficios = beneficios;
         }
 
         public IPlano Get(Identity id) {
@@ -20,20 +21,20 @@ namespace Gadz.Roteiro.Core.Infrastructure.Data.Ado {
         }
 
         public IEnumerable<IPlano> GetAllOf(ICampanha campanha) {
-            _campanha = campanha;
-            return GetAllOf<IPlano>("SELECT * FROM Planos a WHERE CampanhaId = @Id", _campanha);
+            return GetAllOf<IPlano>("SELECT * FROM Planos a WHERE CampanhaId = @Id", campanha);
         }
 
-        protected override T Map<T>(dynamic rec) {
+        public new IEnumerable<IPlano> GetAllOf(IInteracao entity) {
+            return GetAllOf<IPlano>("SELECT a.* FROM Planos a INNER JOIN InteracoesPlanos b on a.Id = b.PlanoId where b.InteracaoId = @Id", entity);
+        }
+
+        protected override T Map<T>(SqlDataReader rec) {
 
             var plano = new Plano(rec["Id"].ToString()) {
-                Campanha = _campanha,
                 Descricao = rec["Descricao"].ToString(),
-                Localidade = rec["Localidade"].ToString(),
                 Nome = rec["Nome"].ToString(),
                 Preco = decimal.Parse(rec["Preco"].ToString()),
-                Tipo = (PlanoTipo)int.Parse(rec["Tipo"].ToString()),
-                ZonaConcorrencia = rec["ZonaConcorrencia"].ToString().ToLower().Equals("true")
+                Tipo = (PlanoTipo)int.Parse(rec["Tipo"].ToString())
             };
 
             plano.Beneficios = _beneficios.GetAllOf(plano).ToList();

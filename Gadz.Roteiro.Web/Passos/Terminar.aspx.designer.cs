@@ -13,21 +13,21 @@ namespace Gadz.Roteiro.Web.Passos {
     public partial class Terminar {
         
         /// <summary>
-        /// Formulario control.
+        /// lbProtocolo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Formulario;
+        protected global::System.Web.UI.WebControls.Label lbProtocolo;
         
         /// <summary>
-        /// TxtIdInteracao control.
+        /// txtTexto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField TxtIdInteracao;
+        protected global::System.Web.UI.WebControls.Label txtTexto;
     }
 }
